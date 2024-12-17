@@ -112,8 +112,8 @@
 
     <!-- Search Container -->
     <div class="search-container">
-        <input type="text" id="skinName" placeholder="Enter your nickname...">
-        <button onclick="searchSkin()">Find Skin</button>
+        <input type="text" id="skinName" placeholder="Введите никнейм...">
+        <button onclick="searchSkin()">Найти скин</button>
     </div>
 
     <!-- Results -->
@@ -125,7 +125,7 @@
             const name = document.getElementById('skinName').value.trim();
             const resultsDiv = document.getElementById('results');
             if (name === '') {
-                alert('Please enter a nickname!');
+                alert('Пожалуйста введите никнейм!');
                 return;
             }
             // Mockup API call (replace with real API if needed)
