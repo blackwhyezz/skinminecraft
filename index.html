@@ -21,13 +21,21 @@
             position: fixed;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%) scale(0.7);
             background: rgba(0, 0, 0, 0.8);
             border-radius: 10px;
             padding: 20px;
             text-align: center;
             z-index: 1000;
-            display: none; /* Скрыто по умолчанию */
+            opacity: 0;
+            visibility: hidden;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        .language-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
         }
 
         .language-menu img {
@@ -227,10 +235,10 @@
             const languageMenu = document.getElementById("languageMenu");
 
             if (!language) {
-                languageMenu.style.display = "block";
+                languageMenu.classList.add("active");
             } else {
                 applyLanguage(language);
-                languageMenu.style.display = "none";
+                languageMenu.classList.remove("active");
             }
         };
 
@@ -250,11 +258,11 @@
         }
 
         function openLanguageMenu() {
-            document.getElementById("languageMenu").style.display = "block";
+            document.getElementById("languageMenu").classList.add("active");
         }
 
         function closeLanguageMenu() {
-            document.getElementById("languageMenu").style.display = "none";
+            document.getElementById("languageMenu").classList.remove("active");
         }
 
         function searchSkin() {
